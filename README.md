@@ -1,5 +1,6 @@
 
 <img width="1920" height="1080" alt="PATRYCK WILLYAMS(3)" src="https://github.com/user-attachments/assets/8b367eb6-c8ce-4445-8bba-a304fd490b80" />
+
 # Rossmann Sales Forecasting — End-to-End Predictive Model
 
 ## Project Overview
