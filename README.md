@@ -1,42 +1,147 @@
 
 <img width="1920" height="1080" alt="PATRYCK WILLYAMS(3)" src="https://github.com/user-attachments/assets/8b367eb6-c8ce-4445-8bba-a304fd490b80" />
+Below is a complete **English README** in the *same structure, tone, formatting, and level of detail* as the example you provided — but fully adapted to your **Rossmann Sales Forecasting Project**.
 
-# End-To-End-Rossman-Sales-Prediction
+# Rossmann Sales Forecasting — End-to-End Predictive Model
 
-## 1. Objective  
-The goal of this project is to develop a predictive model capable of estimating store sales for the next six weeks for each pharmacy in a retail chain. This forecast enables the company owner to identify which stores have the greatest return potential and strategically plan investments, renovations, and marketing campaigns.
+## Project Overview
 
-The model was built using historical sales data, store characteristics, promotions, and temporal information, applying Data Science and Machine Learning techniques to achieve accurate and actionable predictions.
+This project focuses on developing a **predictive model to estimate store sales for the next six weeks** across a large pharmacy retail chain (Rossmann). The objective is to support **strategic investment decisions**, such as renovations, expansion, inventory planning, and marketing campaigns, by identifying which stores have the highest potential return.
 
-## 2. Project Overview  
-This project applies data science techniques, including data cleaning, exploratory analysis, and machine learning, to predict sales patterns and forecast store performance over the next six weeks.
-The analysis aims to support business decisions, optimize resource allocation, and improve strategic planning across the pharmacy network.
+The model was built using historical sales data, store characteristics, promotional activity, and temporal information, applying Data Science and Machine Learning techniques to deliver accurate and actionable forecasts.
 
-## 3. Main Steps  
-- **Data Description**: understanding variables and their relationships with sales behavior, and, data cleaning.
-- **Feature Engineering**: creation of new variables based on dates, promotions, and store characteristics.
-- **Exploratory Data Analysis (EDA)**: univariate, bivariate, and multivariate analysis to identify relevant patterns and correlations.
-- **Data Preparation**: applying encodings and scaling to make the data suitable for machine learning algorithms.
-- **Feature Selection**: selecting the most relevant attributes for model performance.
-- **Machine Learning Modeling**: building and evaluating multiple regression algorithms.
-- **Fine Tuning**: hyperparameter optimization to maximize model performance.
-- **Error Translation and Interpretation**: analyzing the model’s results and understanding prediction errors in real-world scenarios.
-- **Model Deployment**: creating a data pipeline and API for automated forecast generation.
+---
 
-## 4. Dataset  
-The dataset used in this project contains daily sales records from the Rossmann pharmacy chain, which operates more than 3,000 stores across seven European countries. **[Rossman Sales Dataset](https://www.kaggle.com/competitions/rossmann-store-sales)**
+## Business Problem
 
-Currently, each store manager is responsible for predicting their store’s sales for the next six weeks, a challenging task influenced by multiple factors such as promotions, competition, school holidays, seasonality, and location.
+Store managers were manually forecasting sales—a process highly inconsistent due to factors such as promotions, seasonality, competition, regional effects, and holidays. The business needed:
 
-This variability makes manual forecasting inconsistent, which justifies the use of Data Science and Machine Learning techniques to produce more robust, data-driven predictions that support strategic business decisions.
+* Consistent and reliable **short-term sales forecasts**
+* Insight into **which stores are most profitable to invest in**
+* Understanding of **temporal patterns** and seasonal behavior
+* A scalable, automated system to support **data-driven decision-making**
 
-## 5. Conclusion 
-The project aimed to build a predictive model capable of estimating store sales for the next six weeks for the Rossmann pharmacy chain, supporting management in making strategic decisions regarding investments, promotions, and expansion.
+---
 
-Throughout the process, several key steps were carried out — including exploratory analysis, feature engineering, feature selection, model training and validation, and finally, production deployment through a data pipeline and an API for automated predictions.
+## Solution
 
-Among the tested models, the XGBoost Regressor demonstrated the best balance between accuracy, computational efficiency, and generalization capability, and was selected for production. Its consistent performance showed that it is possible to reliably predict sales volume, even considering variations due to seasonality, promotions, and special dates.
+A **regression model** was developed to predict six-week sales for more than 3,000 Rossmann stores across several European countries.
 
-Deploying the model made the system automated and scalable, allowing new predictions to be continuously generated as fresh data becomes available, with no manual intervention required.
+The workflow included:
 
-This project demonstrates a practical application of Data Science and Machine Learning in a real-world business context, providing a solution that delivers strategic value, turning historical data into actionable insights and data-driven decisions. 
+* Exploratory Data Analysis (EDA)
+* Feature engineering (temporal variables, promotion flags, store characteristics, seasonality indicators)
+* Attribute selection
+* Training and validation of multiple models
+* Deployment via API and automated pipeline
+
+After testing several algorithms, the **XGBoost Regressor** delivered the best balance between accuracy, computational efficiency, and generalization.
+
+---
+
+## Model Performance
+
+| Metric   | Value     |
+| -------- | --------- |
+| **R²**   | **0.89**  |
+| **MAPE** | **9.6%**  |
+| **RMSE** | **1,010** |
+| **MAE**  | **684**   |
+
+These results demonstrate that the model captures most of the variance in sales and can be reliably used for strategic planning.
+
+---
+
+## Business Interpretation
+
+The analysis revealed that sales performance is influenced not only by structural store characteristics but largely by **temporal and seasonal patterns**, such as:
+
+* Time of year
+* Holiday periods
+* Weekly sales behavior
+* Long-term downward trends
+
+With this model, store owners can:
+
+* Identify units with the **highest investment potential**
+* Plan **promotional campaigns** during periods of high demand
+* Avoid investing in low-return periods or locations
+* Monitor long-term behavioral trends across stores
+
+---
+
+## Error Analysis per Store
+
+The model performs consistently for most stores, with **MAPE typically between 3% and 10%**, which is excellent for retail forecasting.
+Some stores exhibit higher variability and were more difficult to predict (e.g., Store 909 with MAPE ~36%), likely due to irregular events, unobserved promotions, or atypical behavior.
+
+Understanding these edge cases helps improve:
+
+* Model robustness
+* Data quality checks
+* Local business insights
+
+---
+
+## Forecasting Scenarios
+
+| Scenario            | Value           |
+| ------------------- | --------------- |
+| **Predicted sales** | $270,079,776.00 |
+| **Worst case**      | $254,067,448.02 |
+| **Best case**       | $286,092,126.34 |
+
+These scenarios help decision-makers evaluate risks, budget allocation, and strategic planning.
+
+---
+
+## Model Diagnostics
+
+The evaluation plots demonstrate:
+
+1. **Real vs. Predicted Sales**
+
+   * Strong alignment between curves
+   * Accurate modeling of peaks and seasonal drops
+
+2. **Error Rate Over Time**
+
+   * Balanced errors with no systemic bias
+
+3. **Error Distribution**
+
+   * Symmetric and centered near zero, indicating no over- or underestimation trend
+
+4. **Error vs. Prediction**
+
+   * Stable performance across the entire prediction range
+
+The model generalizes well and is suitable for production use.
+
+---
+
+## Data Source
+
+The dataset contains **daily sales records** for thousands of Rossmann stores across seven European countries, including information on:
+
+* Store type
+* Promotions
+* Competition
+* Assortment
+* Holidays
+* School holidays
+* Temporal patterns
+
+---
+
+## Conclusion
+
+This project successfully delivered a **robust and scalable predictive model** capable of estimating six-week sales across the Rossmann store network. Key outcomes:
+
+* Reliable, high-accuracy forecasts (MAPE ≈ 9.6%)
+* Automated scoring pipeline and production-ready API
+* Support for strategic decisions regarding investment, marketing, and expansion
+* Clear insights into temporal behavior and long-term trends
+* Identification of stores with high or low forecast reliability
+
+Overall, the project demonstrates the practical value of **Data Science and Machine Learning** in a real business environment, transforming historical data into **actionable insights** and enabling more assertive decision-making.
