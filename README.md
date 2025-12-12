@@ -1,7 +1,5 @@
 
 <img width="1920" height="1080" alt="PATRYCK WILLYAMS(3)" src="https://github.com/user-attachments/assets/8b367eb6-c8ce-4445-8bba-a304fd490b80" />
-Below is a complete **English README** in the *same structure, tone, formatting, and level of detail* as the example you provided — but fully adapted to your **Rossmann Sales Forecasting Project**.
-
 # Rossmann Sales Forecasting — End-to-End Predictive Model
 
 ## Project Overview
